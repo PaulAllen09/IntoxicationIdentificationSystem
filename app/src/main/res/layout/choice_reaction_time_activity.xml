@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/choiceColorText"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/grey"
+            android:gravity="center"
+            android:text="@string/choicecolor"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/ColorBox1"
+            android:layout_width="150dp"
+            android:layout_height="75dp"
+            android:background="@color/grey"
+            android:gravity="center"
+            android:text="@string/color1"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toTopOf="@id/ColorBox3"
+            app:layout_constraintEnd_toStartOf="@id/ColorBox2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/ColorBox2"
+            android:layout_width="150dp"
+            android:layout_height="75dp"
+            android:background="@color/grey"
+            android:gravity="center"
+            android:text="@string/color2"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toTopOf="@id/ColorBox4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ColorBox1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/ColorBox3"
+            android:layout_width="150dp"
+            android:layout_height="75dp"
+            android:background="@color/grey"
+            android:gravity="center"
+            android:text="@string/color3"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ColorBox4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ColorBox1" />
+
+        <TextView
+            android:id="@+id/ColorBox4"
+            android:layout_width="150dp"
+            android:layout_height="75dp"
+            android:background="@color/grey"
+            android:gravity="center"
+            android:text="@string/color4"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ColorBox3"
+            app:layout_constraintTop_toBottomOf="@id/ColorBox2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

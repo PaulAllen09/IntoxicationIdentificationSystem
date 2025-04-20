@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Intoxication Identification System</string>
+    <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="choicecolor">ChoiceColor</string>
+    <string name="color1">Color1</string>
+    <string name="color2">Color2</string>
+    <string name="color3">Color3</string>
+    <string name="color4">Color4</string>
+    <string name="user">User:</string>
+
+    <string name="multitasking_task_directions">Task directions go here</string>
+
+    <string name="welcome_to_the_experiment">Welcome to the experiment!</string>
+    <string name="welcome_description">This is an experiment to see if mobile devices can replace a standard breathalyzer.\n\nEnter your user Id number and click a task to begin.</string>
+
+    <string name="task_1">Task 1</string>
+    <string name="task_1_description">The goal of Task 1 is to click one of the lower boxes that has a background color that matches the text of the upper box.\n\nBe careful, the colors, words, and answer color change every time you click!</string>
+
+    <string name="task_2">Task 2</string>
+    <string name="task_2_description">The goal of this task is to watch and listen to the numbers displayed in the upper box and then enter them in reverse order.\n\nIf the numbers are displayed in the order 1, 2, 3, you would enter 3, 2, 1.</string>
+
+    <string name="task_3">Task 3</string>
+    <string name="task_3_description">The goal of this task is to click and hold the react button when the "X" appears on screen. When the "X" disappears, release the react button.</string>
+
+    <string name="task_4">Task 4</string>
+    <string name="task_4_description">The goal of this task is to balance the red circle within the white circle for as long as possible.\nTry to keep the red circle as close to the center of the white circle as possible.\nTo begin this task, you will first have to balance your phone flat like it is lying on a table.\nPlease tilt the device in the direction of the blue arrow; this will help balance the phone.</string>
+
+    <string name="task_5">Task 5</string>
+    <string name="task_5_description">The goal of this task is to click the red circles as they fall down the screen, and to count the number of beeps that are played.\n\nFor best results, click slightly ahead of each circle button.</string>
+
+    <string name="start_task">Start Task</string>
+
+    <string name="baseline_vs_testing_toggle">Baseline vs Testing Toggle</string>
+
+
+    <string name="t">T</string>
+    <string name="b">B</string>
+    <string name="current_user_id">Current User Id:</string>
+    <string name="enter_id_number">Enter Id number</string>
+
+    <string name="new_id_please">Please get a new ID number </string>
+
+
+</resources>

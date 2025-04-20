@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <supports-screens android:largeScreens="true" android:normalScreens="true" android:xlargeScreens="true"/>
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/brain"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme2"
+        tools:targetApi="31">
+
+        <activity android:name=".StartActivities.MultitaskingStart" android:exported="false"/>
+        <activity android:name=".StartActivities.SplashScreen" android:exported="true" android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".Activities.Welcome" android:exported="true" android:label="@string/app_name"/>
+        <activity android:name=".StartActivities.ChoiceStart" android:exported="true" android:label="Task1"/>
+        <activity android:name=".Activities.Task1.ChoiceReactionTime" android:exported="true" android:label="Task1"/>
+        <activity android:name=".StartActivities.ShortTimeStart" android:exported="true" android:label="Task2"/>
+        <activity android:name=".Activities.Task2.ShortTimeMemory" android:exported="true" android:label="Task2"/>
+        <activity android:name=".Activities.Task3.SimpleReactionTest" android:exported="true" android:label="Task3"/>
+        <activity android:name=".StartActivities.SimpleReactionStart" android:exported="true" android:label="Task3"/>
+        <activity android:name=".Activities.Task4.BalanceTask" android:exported="true" android:label="Task4"/>
+        <activity android:name=".StartActivities.BalanceStart" android:exported="true" android:label="Task4"/>
+        <activity android:name=".Activities.Task5.Multitasking" android:exported="true" android:label="Task5"/>
+    </application>
+
+
+</manifest>
