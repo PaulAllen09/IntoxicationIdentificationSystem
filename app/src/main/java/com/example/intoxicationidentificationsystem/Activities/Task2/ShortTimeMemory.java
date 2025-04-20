@@ -13,7 +13,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.example.intoxicationidentificationsystem.Activities.Welcome;
+import com.example.intoxicationidentificationsystem.Welcome;
 import com.example.intoxicationidentificationsystem.Databases.Task2.MyDatabaseHelperTask2;
 import com.example.intoxicationidentificationsystem.R;
 

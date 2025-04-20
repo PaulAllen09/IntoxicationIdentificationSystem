@@ -5,6 +5,7 @@ import static android.view.View.VISIBLE;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -14,9 +15,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.intoxicationidentificationsystem.Activities.Task1.ChoiceReactionTime;
 import com.example.intoxicationidentificationsystem.Activities.Task2.ShortTimeMemory;
+import com.example.intoxicationidentificationsystem.Activities.Task3.SimpleReactionTest;
 import com.example.intoxicationidentificationsystem.Activities.Task4.BalanceTask;
 import com.example.intoxicationidentificationsystem.Activities.Task5.Multitasking;
-import com.example.intoxicationidentificationsystem.StartActivities.SimpleReactionStart;
 
 import java.util.Objects;
 
@@ -51,22 +52,33 @@ public class DirectionsPage extends AppCompatActivity {
             public void onClick(View v) {
                 if(!taskIsRunning){
                     taskIsRunning=true;
-                    startActivity(nextIntent);
+                    DirectionsPage.this.startActivity(nextIntent);
                 }
             }
         });
 
         if(getIntent().hasExtra("id")){
+            Log.d("user id","user id");
             user_id = Integer.parseInt(Objects.requireNonNull(getIntent().getStringExtra("id")));
-            baseTest = getIntent().getStringExtra("status");
-            taskNumber = Integer.parseInt(Objects.requireNonNull(getIntent().getStringExtra("taskNumber")));
+            if(getIntent().hasExtra("Status")){
+                Log.d("status","status");
+
+                baseTest = getIntent().getStringExtra("status");
+            }
+            if(getIntent().hasExtra("taskNumber")){
+                Log.d("taskNumber","taskNumber");
+                taskNumber = Integer.parseInt(Objects.requireNonNull(getIntent().getStringExtra("taskNumber")));
+            }
+            else{
+                taskNumber=2;
+            }
             Objects.requireNonNull(getSupportActionBar()).setTitle("User: "+user_id);
             switch (taskNumber) {
                 case 1:
                     nextIntent = new Intent(this, ChoiceReactionTime.class);
                     taskHeaderTV.setText(R.string.task_1);
                     taskDescriptionTV.setText(R.string.task_1_description);
-                    taskPreviewImage.setVisibility(VISIBLE);
+                    //taskPreviewImage.setVisibility(VISIBLE);
                     taskPreviewImage.setBackgroundResource(R.drawable.task_1_preview);
                     break;
                 case 2:
@@ -77,7 +89,7 @@ public class DirectionsPage extends AppCompatActivity {
                     taskPreviewImage.setBackgroundResource(R.drawable.task_2_preview);
                     break;
                 case 3:
-                    nextIntent = new Intent(this, SimpleReactionStart.class);
+                    nextIntent = new Intent(this, SimpleReactionTest.class);
                     taskHeaderTV.setText(R.string.task_3);
                     taskDescriptionTV.setText(R.string.task_3_description);
                     taskPreviewImage.setVisibility(VISIBLE);
@@ -100,8 +112,8 @@ public class DirectionsPage extends AppCompatActivity {
                     taskPreviewImage.setBackgroundResource(R.drawable.task_5_preview);
                     break;
             }   // End of switch statement
-            intent.putExtra("id", String.valueOf(user_id));
-            intent.putExtra("status",baseTest);
+            nextIntent.putExtra("id", String.valueOf(user_id));
+            nextIntent.putExtra("status",baseTest);
         }
     }
 }

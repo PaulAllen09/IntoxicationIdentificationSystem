@@ -1,11 +1,10 @@
-package com.example.intoxicationidentificationsystem.StartActivities;
+package com.example.intoxicationidentificationsystem;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.intoxicationidentificationsystem.R;
-
 
 
 public class SplashScreen extends AppCompatActivity {
@@ -23,7 +22,8 @@ public class SplashScreen extends AppCompatActivity {
                 }catch(Exception e){
                     e.printStackTrace();
                 }finally{
-                    startActivity(new Intent(SplashScreen.this, com.example.intoxicationidentificationsystem.Activities.Welcome.class));
+                    Log.d("atempginting","attempign to start");
+                    startActivity(new Intent(SplashScreen.this, Welcome.class));
                 }
             }
         };

@@ -5,12 +5,14 @@
     android:id="@+id/rootContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="?attr/actionBarSize"
     android:padding="16dp"
-    android:theme="@style/Theme2"
+    android:theme="@style/MainAppTheme"
     android:orientation="vertical">
+
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="fill_parent"
+        android:id="@+id/welcomeSign"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/welcome_to_the_experiment"
         android:gravity="center"
@@ -24,15 +26,13 @@
     <LinearLayout
         android:id="@+id/toggleLL"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_gravity="top"
-        android:layout_marginStart="7dp"
-        android:gravity="top"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@id/linearLayout"
+        android:layout_marginVertical="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/appDescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toBottomOf="@+id/welcomeSign">
 
         <TextView
             android:id="@+id/textView8"
@@ -65,110 +65,65 @@
             android:textSize="25sp" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:weightSum="6"
-        app:layout_constraintBottom_toTopOf="@id/nameTextBox"
-        app:layout_constraintEnd_toEndOf="parent"
+    <TextView
+        android:id="@+id/appDescription"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/welcome_description"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toStartOf="@id/taskButtonsConstraint"
+        app:layout_constraintBottom_toBottomOf="@id/taskButtonsConstraint"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toggleLL">
+        app:layout_constraintTop_toTopOf="@id/taskButtonsConstraint" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/taskButtonsConstraint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toggleLL"
+        app:layout_constraintBottom_toTopOf="@+id/nameTextBox">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="4"
-            android:paddingTop="12dp"
-            android:text="@string/welcome_description"
-            android:textSize="25sp"
-            app:layout_constraintBottom_toTopOf="@+id/nameTextBox"
+        <Button
+            android:id="@+id/btn_CRT"
+            style="@style/WelcomeButtons"
+            android:text="@string/task_1"
+            app:layout_constraintBottom_toTopOf="@id/btn_STM"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2">
+        <Button
+            android:id="@+id/btn_STM"
+            style="@style/WelcomeButtons"
+            android:text="@string/task_2"
+            app:layout_constraintBottom_toTopOf="@id/btn_SRT"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_CRT" />
 
-            <Button
-                android:id="@+id/btn_CRT"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/rectangle_shape"
-                android:padding="10dp"
-                android:text="@string/task_1"
-                android:textAllCaps="false"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@id/btn_STM"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/btn_SRT"
+            style="@style/WelcomeButtons"
+            android:text="@string/task_3"
+            app:layout_constraintBottom_toTopOf="@id/btn_B"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_STM" />
 
-            <Button
-                android:id="@+id/btn_STM"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/rectangle_shape"
-                android:padding="10dp"
-                android:text="@string/task_2"
-                android:textAllCaps="false"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@id/btn_SRT"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_CRT" />
+        <Button
+            android:id="@+id/btn_B"
+            style="@style/WelcomeButtons"
+            android:text="@string/task_4"
+            app:layout_constraintBottom_toTopOf="@id/btn_M"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_SRT" />
 
-            <Button
-                android:id="@+id/btn_SRT"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/rectangle_shape"
-                android:padding="10dp"
-                android:text="@string/task_3"
-                android:textAllCaps="false"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@id/btn_B"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_STM" />
-
-            <Button
-                android:id="@+id/btn_B"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/rectangle_shape"
-                android:padding="10dp"
-                android:text="@string/task_4"
-                android:textAllCaps="false"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@id/btn_M"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_SRT" />
-
-            <Button
-                android:id="@+id/btn_M"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/rectangle_shape"
-                android:padding="10dp"
-                android:text="@string/task_5"
-                android:textAllCaps="false"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_B" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </LinearLayout>
+        <Button
+            android:id="@+id/btn_M"
+            style="@style/WelcomeButtons"
+            android:text="@string/task_5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_B" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <TextView
@@ -178,10 +133,10 @@
         android:text="@string/current_user_id"
         android:textColor="@color/black"
         android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@id/appDescription"
         app:layout_constraintBottom_toTopOf="@+id/new_id_button"
         app:layout_constraintEnd_toStartOf="@+id/displayIdBox"
-        app:layout_constraintStart_toStartOf="@+id/new_id_button"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintStart_toStartOf="@+id/new_id_button" />
 
     <EditText
         android:id="@+id/displayIdBox"
@@ -201,8 +156,9 @@
         android:id="@+id/new_id_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Click here\n for a new Id"
+        android:layout_marginTop="8dp"
         android:paddingVertical="20dp"
+        android:text="Click here\n for a new Id"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

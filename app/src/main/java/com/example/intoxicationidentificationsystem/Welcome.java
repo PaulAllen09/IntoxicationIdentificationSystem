@@ -1,8 +1,9 @@
-package com.example.intoxicationidentificationsystem.Activities;
+package com.example.intoxicationidentificationsystem;
 
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -13,12 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
 import com.example.intoxicationidentificationsystem.Databases.WelcomeData.MyDatabaseHelperWelcomeData;
-import com.example.intoxicationidentificationsystem.R;
-import com.example.intoxicationidentificationsystem.StartActivities.BalanceStart;
-import com.example.intoxicationidentificationsystem.StartActivities.ChoiceStart;
-import com.example.intoxicationidentificationsystem.StartActivities.MultitaskingStart;
-import com.example.intoxicationidentificationsystem.StartActivities.ShortTimeStart;
-import com.example.intoxicationidentificationsystem.StartActivities.SimpleReactionStart;
 
 import java.util.Objects;
 
@@ -46,12 +41,14 @@ public class Welcome extends AppCompatActivity {
     int user_id=-1;
     String testerStatus ="baseline";
 
+    Intent intent;
 
     MyDatabaseHelperWelcomeData db;
     Cursor readingCursor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("inside","Inside");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome_page);
         baselineVsTesting=findViewById(R.id.baselineVsTesting);
@@ -65,13 +62,15 @@ public class Welcome extends AppCompatActivity {
             if(testerStatus!=null && testerStatus.equals("baseline")){
                 baselineVsTesting.setChecked(false);
             }
-            else if (testerStatus.equals("testing")){
+            else if (testerStatus!=null && testerStatus.equals("testing")){
                 baselineVsTesting.setChecked(true);
             }
         }
         Objects.requireNonNull(getSupportActionBar()).setTitle("");
         db = new MyDatabaseHelperWelcomeData(Welcome.this);
+        Log.d("inside","Inside2");
 
+        intent = new Intent(Welcome.this, DirectionsPage.class);
 
         task1Button = findViewById(R.id.btn_CRT);
         task2Button = findViewById(R.id.btn_STM);
@@ -89,98 +88,40 @@ public class Welcome extends AppCompatActivity {
         if (display.equals("-1000")){
             displayIdBox.setText(""+db.getNextUserId());
         }
-        //Log.d("testing","before check");
-        if(baselineVsTesting.isPressed()){
-            //Log.d("testing","after check");
 
-            testerStatus ="testing";
-            //testerStatus ="baseline";
-        }
-        else{
-            //Log.d("testing","after check");
-            //testerStatus ="testing";
-            testerStatus ="baseline";
-        }
-
-
-
+        testerStatus = baselineVsTesting.isPressed()? "testing":"baseline";
 
         task1Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(displayIdBox.getText().toString().isEmpty()){
-                    Toast.makeText(Welcome.this, "@string/new_id_please", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    clickedButton();
-                    //Log.d("testing","create intent");
-                    Intent intent = new Intent(Welcome.this, ChoiceStart.class);
-                    intent.putExtra("id", displayIdBox.getText().toString().trim());
-                    //Log.d("Welcome status",""+testerStatus);
-                    intent.putExtra("status", testerStatus);
-                    //Log.d("testing","before start");
-                    Welcome.this.startActivity(intent);
-                }
+                clickedButton(1);
             }
         });
         task2Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(displayIdBox.getText().toString().isEmpty()){
-                    Toast.makeText(Welcome.this, "@string/new_id_please", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    clickedButton();
-                    Intent intent = new Intent(Welcome.this, ShortTimeStart.class);
-                    intent.putExtra("id", displayIdBox.getText().toString().trim());
-                    intent.putExtra("status", testerStatus);
-                    Welcome.this.startActivity(intent);
-                }
+                clickedButton(2);
             }
         });
         task3Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(displayIdBox.getText().toString().isEmpty()){
-                    Toast.makeText(Welcome.this, "@string/new_id_please", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    clickedButton();
-                    Intent intent = new Intent(Welcome.this, SimpleReactionStart.class);
-                    intent.putExtra("id", displayIdBox.getText().toString().trim());
-                    intent.putExtra("status", testerStatus);
-                    Welcome.this.startActivity(intent);
-                }
+                clickedButton(3);
+
             }
         });
         task4Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(displayIdBox.getText().toString().isEmpty()){
-                    Toast.makeText(Welcome.this, "@string/new_id_please", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    clickedButton();
-                    Intent intent = new Intent(Welcome.this, BalanceStart.class);
-                    intent.putExtra("id", displayIdBox.getText().toString().trim());
-                    intent.putExtra("status", testerStatus);
-                    Welcome.this.startActivity(intent);
-                }
+                clickedButton(4);
+
             }
         });
         task5Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(displayIdBox.getText().toString().isEmpty()){
-                    Toast.makeText(Welcome.this, "@string/new_id_please", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    clickedButton();
-                    Intent intent = new Intent(Welcome.this, MultitaskingStart.class);
-                    intent.putExtra("id", displayIdBox.getText().toString().trim());
-                    intent.putExtra("status", testerStatus);
-                    Welcome.this.startActivity(intent);
-                }
+                clickedButton(5);
+
             }
         });
 
@@ -203,14 +144,24 @@ public class Welcome extends AppCompatActivity {
 
         db.close();
     }
-    void clickedButton(){
-        String temp = String.valueOf(displayIdBox.getText());
-        if(!db.findID(Integer.parseInt(temp))){
-            db.addIdNum(Integer.parseInt(temp));
+    void clickedButton(int taskNumber){
+        // If the user is able to press button start activity and store user data
+
+        if(displayIdBox.getText().toString().isEmpty()){
+            Toast.makeText(Welcome.this, "@string/new_id_please", Toast.LENGTH_SHORT).show();
         }
+        else{
 
+
+            String temp = String.valueOf(displayIdBox.getText());
+            if(!db.findID(Integer.parseInt(temp))){
+                db.addIdNum(Integer.parseInt(temp));
+            }
+
+            intent.putExtra("id", displayIdBox.getText().toString().trim());
+            intent.putExtra("status", testerStatus);
+            intent.putExtra("taskNumber", Integer.toString(taskNumber));
+            Welcome.this.startActivity(intent);
+        }
     }
-
-
-
 }

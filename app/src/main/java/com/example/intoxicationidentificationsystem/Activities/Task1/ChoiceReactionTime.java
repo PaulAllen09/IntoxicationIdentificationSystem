@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.intoxicationidentificationsystem.Activities.Welcome;
+import com.example.intoxicationidentificationsystem.Welcome;
 import com.example.intoxicationidentificationsystem.Databases.Task1.MyDatabaseHelperTask1;
 import com.example.intoxicationidentificationsystem.R;
 

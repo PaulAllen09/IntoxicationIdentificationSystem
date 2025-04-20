@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.intoxicationidentificationsystem.Activities.Welcome;
+import com.example.intoxicationidentificationsystem.Welcome;
 import com.example.intoxicationidentificationsystem.R;
 
 import java.util.Objects;

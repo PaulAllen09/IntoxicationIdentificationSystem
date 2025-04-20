@@ -12,25 +12,21 @@
         android:icon="@drawable/brain"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme2"
+        android:theme="@style/MainAppTheme"
         tools:targetApi="31">
 
-        <activity android:name=".StartActivities.MultitaskingStart" android:exported="false"/>
-        <activity android:name=".StartActivities.SplashScreen" android:exported="true" android:label="@string/app_name">
+        <activity android:name=".SplashScreen" android:exported="true" android:label="@string/app_name" android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.Welcome" android:exported="true" android:label="@string/app_name"/>
-        <activity android:name=".StartActivities.ChoiceStart" android:exported="true" android:label="Task1"/>
+        <activity android:name=".Welcome" android:exported="true" android:label="@string/app_name"/>
+        <activity android:name=".DirectionsPage" android:theme="@style/MainAppTheme" android:exported="true" android:label="DirectionsPage"/>
         <activity android:name=".Activities.Task1.ChoiceReactionTime" android:exported="true" android:label="Task1"/>
-        <activity android:name=".StartActivities.ShortTimeStart" android:exported="true" android:label="Task2"/>
         <activity android:name=".Activities.Task2.ShortTimeMemory" android:exported="true" android:label="Task2"/>
         <activity android:name=".Activities.Task3.SimpleReactionTest" android:exported="true" android:label="Task3"/>
-        <activity android:name=".StartActivities.SimpleReactionStart" android:exported="true" android:label="Task3"/>
         <activity android:name=".Activities.Task4.BalanceTask" android:exported="true" android:label="Task4"/>
-        <activity android:name=".StartActivities.BalanceStart" android:exported="true" android:label="Task4"/>
         <activity android:name=".Activities.Task5.Multitasking" android:exported="true" android:label="Task5"/>
     </application>
 
