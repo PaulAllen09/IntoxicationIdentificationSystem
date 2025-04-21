@@ -26,7 +26,7 @@ public class ButtonData {
         this.button=button;
 
 
-        this.locations= r.nextInt(200)+121;
+        this.locations= r.nextInt(110)+180;
         this.xCord= (int)button.getX();
         total_height= (int) ((button.getY()*-2)+screenHeight);
         start_height= (int) button.getY();

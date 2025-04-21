@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import java.util.Date;
+
 public class MyDatabaseHelperWelcomeData extends SQLiteOpenHelper {
     /*
     * This is a database helper task. It is responsible for handling
@@ -26,7 +28,8 @@ public class MyDatabaseHelperWelcomeData extends SQLiteOpenHelper {
     private static final String TABLE_TASK_DATA="used_id_numbers";
 
     //col_id is the col where user id will be stored
-    private static final String COL_ID="_id";
+    private static final String COL_ID= "_id";
+    private static final String DATE = "_date";
 
     public MyDatabaseHelperWelcomeData(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -39,7 +42,8 @@ public class MyDatabaseHelperWelcomeData extends SQLiteOpenHelper {
         //last line will change color of the text in the sql language
         String query=
                 "CREATE TABLE " + TABLE_NAME +
-                        " ( "+ COL_ID + " INTEGER PRIMARY KEY); ";
+                        " ( "+ COL_ID + " INTEGER PRIMARY KEY, "+
+                        DATE+ " STRING"+ "); ";
         db.execSQL(query);
         //This database is purely used to store what values have already been used
         //by users as an id value.
@@ -58,6 +62,7 @@ public class MyDatabaseHelperWelcomeData extends SQLiteOpenHelper {
         ContentValues cv = new ContentValues();
 
         cv.put(COL_ID,userID);
+        cv.put(DATE, String.valueOf(java.time.LocalDateTime.now()));
 
 
         long result= db.insert(TABLE_NAME, null, cv);

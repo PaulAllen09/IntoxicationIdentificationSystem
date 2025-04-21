@@ -56,15 +56,15 @@ public class Backgroundwork extends Thread {
     Random r = new Random();
 
     int trials=0;          // Switched to a trial based system, they get 15 trials and move up and down
-                            // based on if they are right or wrong
+    // based on if they are right or wrong
 
     int max_trials =10;
     int error_repeat=0;     // Will keep track of how many times a user enters the wrong answer in a row
     //int lives=3;            // Keeps track of how many attempts the user has left
     //int roundTimeLength=30; // The number of seconds this task will run
     int roundNumber=1;      // Keeps track of what round the user is on
-                            // the round number correlates to the length of the number that
-                            // will be displayed to the user.
+    // the round number correlates to the length of the number that
+    // will be displayed to the user.
 
     String userEnteredString;   // Will be the values the user enters
     String roundString;         // Will be the wanted answer
@@ -88,7 +88,7 @@ public class Backgroundwork extends Thread {
     boolean running=true;   // Used to prevent a double stop of thread
 
     Context context;    // Will be the ui thread's context
-                        // used to put data in the SQLite database and for toast messages
+    // used to put data in the SQLite database and for toast messages
 
     // The incoming data to be stored here and used in SQLite database
     int user_id;
@@ -343,17 +343,15 @@ public class Backgroundwork extends Thread {
     class showNumberThread implements Runnable{
 
         /*
-        This thread displays the correct answer in reverse order.
-        Users are supposed to enter the numbers in reverse order from what is displayed.
-        Thus making the user entered string equal to the correct answer.
-        */
+         * This thread should display the numbers
+         */
         @Override
         public void run() {
             //Log.d("show Thread","starting");
             // Make sure the correct answer is not empty
-                // Probably not needed because initialized with one value inside?
+            // Probably not needed because initialized with one value inside?
             if(!roundString.isEmpty()) {
-                for (int i = roundString.length() - 1; i >= 0; i--) {
+                for (int i = 0; i<roundString.length(); i++) {
                     displayBox.setText(String.valueOf(roundString.charAt(i)));
                     //vocalize the number here
                     switch (Character.getNumericValue(roundString.charAt(i))){

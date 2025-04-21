@@ -299,42 +299,6 @@ public class BackgroundWork extends Thread{
 
     @Override
     public void run() {
-//        try {
-//            Thread.sleep(2000); // Allow time for user to understand what is happening
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
-//
-//        Handler handler = new Handler(Looper.getMainLooper());
-//        Log.d("Getting Here", "Getting here");
-//        sendShape1= new sendShapes(shapes1, time);
-//        sendShape1.start();
-//
-//        try {
-//            Thread.sleep(1000);
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
-//        sendShape2= new sendShapes(shapes2, time);
-//        sendShape2.start();
-//
-//        try {
-//            Thread.sleep(1500);
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
-//        sendShape3= new sendShapes(shapes3, time);
-//        sendShape3.start();
-//
-//        while(sendShape1.running || sendShape2.running ||sendShape3.running ){
-//            // Do nothing but wait
-//            try {
-//                Thread.sleep(100);
-//            } catch (InterruptedException e) {
-//                throw new RuntimeException(e);
-//            }
-//        }
-//        Log.d("Getting Here", "Getting here");
         try {
             Thread.sleep(2000); // Allow time for user to understand what is happening
         } catch (InterruptedException e) {
