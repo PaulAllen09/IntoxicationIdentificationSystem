@@ -14,11 +14,10 @@
 
     <style name="MainAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-
         <item name="colorPrimary">@color/black</item><!--Action bar color-->
         <item name="colorPrimaryDark">@color/green</item>
         <item name="colorAccent">@color/blue</item><!--Unknown color-->
-        <!--<item name="android:background">@color/green</item>-->
+        <item name="windowActionBarOverlay">false</item>
         <item name="android:textColor">@color/black</item>
         <item name="windowNoTitle">false</item>
         <item name="windowActionBar">true</item>
@@ -28,11 +27,21 @@
     <style name="WelcomeButtons" parent="Widget.AppCompat.Button">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">15dp</item>
-        <item name="android:layout_marginBottom">15dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
         <item name="android:background">@drawable/rectangle_shape</item>
-        <item name="android:padding">10dp</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="Task2Buttons" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:background">@drawable/rectangle_shape</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:visibility">visible</item>
+        <item name="android:layout_marginHorizontal">24dp</item>
+        <item name="android:layout_marginVertical">18dp</item>
+
     </style>
 </resources>
