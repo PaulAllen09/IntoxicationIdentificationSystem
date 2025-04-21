@@ -42,7 +42,7 @@ public class Multitasking extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         // Standard set up see task 1 for more details
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.multitasking_activity);
+        setContentView(R.layout.task_5_activity);
         intent = new Intent(Multitasking.this, Welcome.class);
         if(getIntent().hasExtra("id")){
             user_id=Integer.valueOf(getIntent().getStringExtra("id"));

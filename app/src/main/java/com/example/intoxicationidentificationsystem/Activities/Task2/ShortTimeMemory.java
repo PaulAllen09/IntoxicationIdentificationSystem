@@ -61,7 +61,7 @@ The more times in a row the user gets the answer correct, the larger their numbe
     protected void onCreate(Bundle savedInstanceState) {
         // Same set up as Task 1
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.short_time_memory_activity);
+        setContentView(R.layout.task_2_activity);
         intent = new Intent(ShortTimeMemory.this, Welcome.class);
         if(getIntent().hasExtra("id")){
             user_id=Integer.valueOf(getIntent().getStringExtra("id"));

@@ -44,7 +44,7 @@ public class BalanceTask extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.balance_task_activity);
+        setContentView(R.layout.task_4_activity);
         Objects.requireNonNull(getSupportActionBar()).setTitle("Task 4");
         intent = new Intent(BalanceTask.this, Welcome.class);
         if(getIntent().hasExtra("id")){

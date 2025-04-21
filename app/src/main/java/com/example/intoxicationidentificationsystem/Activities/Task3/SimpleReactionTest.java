@@ -42,7 +42,7 @@ public class SimpleReactionTest extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         // Standard activity set up see task 1 for more details
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.simple_reaction_test_activity);
+        setContentView(R.layout.task_3_activity);
         intent = new Intent(SimpleReactionTest.this, Welcome.class);
         if(getIntent().hasExtra("id")){
             user_id=Integer.valueOf(getIntent().getStringExtra("id"));

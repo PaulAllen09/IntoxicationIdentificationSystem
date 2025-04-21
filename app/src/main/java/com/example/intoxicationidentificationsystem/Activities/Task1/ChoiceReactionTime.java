@@ -78,7 +78,7 @@ public class ChoiceReactionTime extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         // Standard setup of the activity and ui.
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.choice_reaction_time_activity);
+        setContentView(R.layout.task_1_activity);
         // The next activity that will be loaded will be the welcome screen
         // so users can select another Task.
         intent = new Intent(ChoiceReactionTime.this, Welcome.class);
