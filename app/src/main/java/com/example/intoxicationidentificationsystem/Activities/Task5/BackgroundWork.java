@@ -155,7 +155,7 @@ public class BackgroundWork extends Thread{
                     tempButton.setOnClickListener(circle_clicked);
 
                     //Log.d("RedCircle","Button: "+button_counter);
-                    tempButton.setBackgroundResource(drawable.circle_no_background);
+                    //tempButton.setBackgroundResource(drawable.circle_no_background);
                     //Log.d("CircleChance",""+since_last_circle);
                     since_last_circle=0;
                     relLayout.addView(tempButton);

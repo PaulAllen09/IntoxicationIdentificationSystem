@@ -95,9 +95,7 @@ public class ButtonData {
     public int getNextYlocation(){
         int temp=getCurrentY()+getMovementY();
         setCurrentY(temp);
-        if(yCord>=total_height){
-            setCurrentY(start_height);
-        }
+
         return temp;
     }
     public void playAnimation() {
@@ -105,13 +103,12 @@ public class ButtonData {
     }
 
     private void animateStep() {
-        if (locations > 0 && yCord < total_height) {
+        if (yCord < total_height) {
             mainHandler.post(() -> {
                 button.setY(getNextYlocation());
                 //Log.d("Button " + button.getId(), "Moved to: " + getCurrentY());
             });
 
-            locations--;
             mainHandler.postDelayed(this::animateStep, delay);
         } else {
             mainHandler.post(() -> button.setY(getNextYlocation()));
