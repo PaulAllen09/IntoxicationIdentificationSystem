@@ -58,19 +58,15 @@ public class DirectionsPage extends AppCompatActivity {
         });
 
         if(getIntent().hasExtra("id")){
-            Log.d("user id","user id");
             user_id = Integer.parseInt(Objects.requireNonNull(getIntent().getStringExtra("id")));
-            if(getIntent().hasExtra("Status")){
-                Log.d("status","status");
-
+            if(getIntent().hasExtra("status")){
                 baseTest = getIntent().getStringExtra("status");
             }
             if(getIntent().hasExtra("taskNumber")){
-                Log.d("taskNumber","taskNumber");
                 taskNumber = Integer.parseInt(Objects.requireNonNull(getIntent().getStringExtra("taskNumber")));
             }
             else{
-                taskNumber=2;
+                taskNumber=1;
             }
             Objects.requireNonNull(getSupportActionBar()).setTitle("User: "+user_id);
             switch (taskNumber) {
@@ -106,14 +102,14 @@ public class DirectionsPage extends AppCompatActivity {
                     break;
                 case 5:
                     nextIntent = new Intent(this, Multitasking.class);
-                    taskHeaderTV.setText(R.string.task_1);
+                    taskHeaderTV.setText(R.string.task_5);
                     taskDescriptionTV.setText(R.string.task_5_description);
                     taskPreviewImage.setVisibility(VISIBLE);
                     taskPreviewImage.setBackgroundResource(R.drawable.task_5_preview);
                     break;
             }   // End of switch statement
             nextIntent.putExtra("id", String.valueOf(user_id));
-            nextIntent.putExtra("status",baseTest);
+            nextIntent.putExtra("status", baseTest);
         }
     }
 }

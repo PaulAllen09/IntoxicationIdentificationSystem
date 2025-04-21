@@ -14,10 +14,12 @@
     <string name="welcome_description">This is an experiment to see if mobile devices can replace a standard breathalyzer.\n\nEnter your user Id number and click a task to begin.</string>
 
     <string name="task_1">Task 1</string>
-    <string name="task_1_description">The goal of Task 1 is to click one of the lower boxes that has a background color that matches the text of the upper box.\n\nBe careful, the colors, words, and answer color change every time you click!</string>
+    <string name="task_1_description">Read the color at the top of the screen, then click on one of the four boxes with the associated background color. </string>
+    <string name="task_1_description2">The goal of Task 1 is to click one of the lower boxes that has a background color that matches the text of the upper box.\n\nBe careful, the colors, words, and answer color change every time you click!</string>
 
     <string name="task_2">Task 2</string>
-    <string name="task_2_description">The goal of this task is to watch and listen to the numbers displayed in the upper box and then enter them in reverse order.\n\nIf the numbers are displayed in the order 1, 2, 3, you would enter 3, 2, 1.</string>
+    <string name="task_2_description">Watch and listen to the numbers being displayed, and then enter them in the same order</string>
+    <string name="task_2_description2">The goal of this task is to watch and listen to the numbers displayed in the upper box and then enter them in the same order.</string>
 
     <string name="task_3">Task 3</string>
     <string name="task_3_description">The goal of this task is to click and hold the react button when the "X" appears on screen. When the "X" disappears, release the react button.</string>

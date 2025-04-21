@@ -22,7 +22,6 @@ public class SplashScreen extends AppCompatActivity {
                 }catch(Exception e){
                     e.printStackTrace();
                 }finally{
-                    Log.d("atempginting","attempign to start");
                     startActivity(new Intent(SplashScreen.this, Welcome.class));
                 }
             }

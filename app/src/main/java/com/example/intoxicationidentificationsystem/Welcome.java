@@ -48,10 +48,10 @@ public class Welcome extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d("inside","Inside");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome_page);
         baselineVsTesting=findViewById(R.id.baselineVsTesting);
+
 
         if(getIntent().hasExtra("id")){
             user_id=Integer.parseInt(Objects.requireNonNull(getIntent().getStringExtra("id")));
@@ -68,7 +68,6 @@ public class Welcome extends AppCompatActivity {
         }
         Objects.requireNonNull(getSupportActionBar()).setTitle("");
         db = new MyDatabaseHelperWelcomeData(Welcome.this);
-        Log.d("inside","Inside2");
 
         intent = new Intent(Welcome.this, DirectionsPage.class);
 
