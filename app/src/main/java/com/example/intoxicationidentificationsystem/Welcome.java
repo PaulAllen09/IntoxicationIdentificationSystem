@@ -77,7 +77,7 @@ public class Welcome extends AppCompatActivity {
         Log.d("putting up task number","before check taskNumber:");
 
         if(getIntent().hasExtra("taskNumber")){
-            displayIdBox.setText(db.getNextUserId());
+            displayIdBox.setText(""+db.getNextUserId());
         }
         Log.d("putting up task number","after check taskNumber:");
 
