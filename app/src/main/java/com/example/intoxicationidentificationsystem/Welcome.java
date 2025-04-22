@@ -48,13 +48,21 @@ public class Welcome extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("putting up task number","Start of woelcme:");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome_page);
         baselineVsTesting=findViewById(R.id.baselineVsTesting);
 
+        displayIdBox = findViewById(R.id.displayIdBox);
+        db = new MyDatabaseHelperWelcomeData(Welcome.this);
+
+
+        Log.d("putting up task number","before intent check:");
 
         if(getIntent().hasExtra("id")){
             user_id=Integer.parseInt(Objects.requireNonNull(getIntent().getStringExtra("id")));
+            displayIdBox.setText(""+user_id);
         }
         if(getIntent().hasExtra("testerStatus")){
             testerStatus =getIntent().getStringExtra("testerStatus");
@@ -66,9 +74,18 @@ public class Welcome extends AppCompatActivity {
                 baselineVsTesting.setChecked(true);
             }
         }
-        Objects.requireNonNull(getSupportActionBar()).setTitle("");
-        db = new MyDatabaseHelperWelcomeData(Welcome.this);
+        Log.d("putting up task number","before check taskNumber:");
 
+        if(getIntent().hasExtra("taskNumber")){
+            displayIdBox.setText(db.getNextUserId());
+        }
+        Log.d("putting up task number","after check taskNumber:");
+
+        Objects.requireNonNull(getSupportActionBar()).setTitle("");
+        String display = String.valueOf(displayIdBox.getText());
+        if (display.equals("-1000")){
+            displayIdBox.setText(""+db.getNextUserId());
+        }
         intent = new Intent(Welcome.this, DirectionsPage.class);
 
         task1Button = findViewById(R.id.btn_CRT);
@@ -80,13 +97,6 @@ public class Welcome extends AppCompatActivity {
 
         displayIdBox = findViewById(R.id.displayIdBox);
 
-        if(user_id!=-1){
-            displayIdBox.setText(""+user_id);
-        }
-        String display = String.valueOf(displayIdBox.getText());
-        if (display.equals("-1000")){
-            displayIdBox.setText(""+db.getNextUserId());
-        }
 
         testerStatus = baselineVsTesting.isPressed()? "testing":"baseline";
 

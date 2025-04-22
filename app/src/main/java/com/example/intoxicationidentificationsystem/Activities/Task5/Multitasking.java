@@ -54,6 +54,8 @@ public class Multitasking extends AppCompatActivity {
             Objects.requireNonNull(getSupportActionBar()).setTitle("User: "+user_id);
             intent.putExtra("id", String.valueOf(user_id));
             intent.putExtra("status",baseTest);
+            Log.d("putting up task number","taskNumber:");
+            intent.putExtra("taskNumber",5);
         }
         // Get the screen size in pixels
         DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -102,6 +104,7 @@ public class Multitasking extends AppCompatActivity {
                     handler.postDelayed(this, 1000);
                 } else {
                     // Handle completion of bgWork here if needed
+                    Log.d("putting up task number","starting activity");
                     Multitasking.this.startActivity(intent);
                 }
             }
