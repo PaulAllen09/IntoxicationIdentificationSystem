@@ -23,6 +23,7 @@ public class MyDatabaseHelperTask2 extends SQLiteOpenHelper {
     private static final String COL_USER_ENTERED="_user_entered";
     private static final String COL_USER_RESPONSE_TIME="_user_response_time";
     private static final String STATUS="_status";
+    private static final String DATE="_date";
 
 
     public MyDatabaseHelperTask2(@Nullable Context context) {
@@ -41,7 +42,8 @@ public class MyDatabaseHelperTask2 extends SQLiteOpenHelper {
                         COL_CORRECT + " STRING, "+
                         COL_USER_ENTERED + " STRING, " +
                         COL_USER_RESPONSE_TIME +" STRING, " +
-                        STATUS + " STRING );";
+                        STATUS + " STRING, "+
+                        DATE + " STRING);";
         db.execSQL(query);
     }
 
@@ -64,6 +66,7 @@ public class MyDatabaseHelperTask2 extends SQLiteOpenHelper {
         cv.put(COL_USER_ENTERED, response);
         cv.put(COL_USER_RESPONSE_TIME,responsetime);
         cv.put(STATUS,status);
+        cv.put(DATE, String.valueOf(java.time.LocalDateTime.now()));
 
         long result= db.insert((TABLE_NAME), null, cv);
         if(result == -1){

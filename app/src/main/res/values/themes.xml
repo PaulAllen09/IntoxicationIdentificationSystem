@@ -15,7 +15,7 @@
     <style name="MainAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/black</item><!--Action bar color-->
-        <item name="colorPrimaryDark">@color/green</item>
+        <item name="colorPrimaryDark">@color/grey</item>
         <item name="colorAccent">@color/blue</item><!--Unknown color-->
         <item name="windowActionBarOverlay">false</item>
         <item name="android:textColor">@color/black</item>

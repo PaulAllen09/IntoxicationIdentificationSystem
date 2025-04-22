@@ -80,61 +80,65 @@
             android:id="@+id/Number1"
             style="@style/Task2Buttons"
             android:layout_marginStart="24dp"
-            android:layout_marginEnd="0dp"
             android:text="1"
             app:layout_constraintBottom_toTopOf="@id/Number3"
             app:layout_constraintEnd_toStartOf="@id/Number2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="invisible" />
 
         <Button
-            style="@style/Task2Buttons"
             android:id="@+id/Number2"
+            style="@style/Task2Buttons"
             android:text="2"
             app:layout_constraintBottom_toTopOf="@id/Number4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/Number1"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="invisible" />
+
         <Button
-            style="@style/Task2Buttons"
             android:id="@+id/Number3"
-            android:text="3"
+            style="@style/Task2Buttons"
             android:layout_marginStart="24dp"
-            android:layout_marginEnd="0dp"
+            android:text="3"
             app:layout_constraintBottom_toTopOf="@id/Number5"
             app:layout_constraintEnd_toStartOf="@id/Number4"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/Number1"/>
+            app:layout_constraintTop_toBottomOf="@id/Number1"
+            tools:visibility="invisible" />
 
         <Button
-            style="@style/Task2Buttons"
             android:id="@+id/Number4"
+            style="@style/Task2Buttons"
             android:text="4"
             app:layout_constraintBottom_toTopOf="@id/Number6"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/Number3"
-            app:layout_constraintTop_toBottomOf="@id/Number2" />
+            app:layout_constraintTop_toBottomOf="@id/Number2"
+            tools:visibility="invisible" />
 
         <Button
-            style="@style/Task2Buttons"
             android:id="@+id/Number5"
-            android:text="5"
+            style="@style/Task2Buttons"
             android:layout_marginStart="24dp"
-            android:layout_marginEnd="0dp"
+            android:text="5"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/Number6"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/Number3" />
+            app:layout_constraintTop_toBottomOf="@id/Number3"
+            tools:visibility="invisible" />
 
         <Button
-            style="@style/Task2Buttons"
             android:id="@+id/Number6"
+            style="@style/Task2Buttons"
             android:text="6"
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/Number5"
-            app:layout_constraintTop_toBottomOf="@id/Number4" />
+            app:layout_constraintTop_toBottomOf="@id/Number4"
+            tools:visibility="invisible" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

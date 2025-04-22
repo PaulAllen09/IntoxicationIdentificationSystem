@@ -24,7 +24,7 @@ public class MyDatabaseHelperTask5 extends SQLiteOpenHelper {
     private static final String COL_BEEPS_ENTERED="_beeps_entered";
     private static final String COL_BEEPS_APPEARED="_beeps_played";
     private static final String STATUS="_status";
-
+    private static final String DATE="_date";
 
 
     public MyDatabaseHelperTask5(@Nullable Context context) {
@@ -45,7 +45,8 @@ public class MyDatabaseHelperTask5 extends SQLiteOpenHelper {
                         COL_CIRCLES_APPEARED + " INTEGER, " +
                         COL_BEEPS_ENTERED + " INTEGER, " +
                         COL_BEEPS_APPEARED +" INTEGER, "+
-                        STATUS + " STRING );";
+                        STATUS + " STRING, "+
+                        DATE + " STRING );";
 
         db.execSQL(query);
     }
@@ -70,6 +71,7 @@ public class MyDatabaseHelperTask5 extends SQLiteOpenHelper {
         cv.put(COL_BEEPS_ENTERED,beep);
         cv.put(COL_BEEPS_APPEARED,cBeeps);
         cv.put(STATUS,status);
+        cv.put(DATE, String.valueOf(java.time.LocalDateTime.now()));
         long result= db.insert(TABLE_NAME, null, cv);
         if(result == -1){
             Toast.makeText(context,"Data failed to add", Toast.LENGTH_SHORT).show();

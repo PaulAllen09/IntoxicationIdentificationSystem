@@ -37,6 +37,7 @@ public class MyDatabaseHelperTask1 extends SQLiteOpenHelper {
     private static final String COL_WRONG="_wrong";
     //
     private static final String STATUS="_status";
+    private static final String DATE="_date";
 
 
 
@@ -56,7 +57,8 @@ public class MyDatabaseHelperTask1 extends SQLiteOpenHelper {
                         COL_ID + " INTEGER, " +
                         COL_CORRECT + " INTEGER, "+
                         COL_WRONG + " INTEGER, "+
-                        STATUS + " STRING );";
+                        STATUS + " STRING, "+
+                        DATE +" STRING);";
         db.execSQL(query);
         /*
         * I wan this query to store all the user data seperately from their testing data
@@ -79,6 +81,7 @@ public class MyDatabaseHelperTask1 extends SQLiteOpenHelper {
         cv.put(COL_CORRECT, correct);
         cv.put(COL_WRONG, wrong);
         cv.put(STATUS,status);
+        cv.put(DATE, String.valueOf(java.time.LocalDateTime.now()));
         long result= db.insert(TABLE_NAME, null, cv);
         if(result == -1){
             Toast.makeText(context,"Failed", Toast.LENGTH_SHORT).show();

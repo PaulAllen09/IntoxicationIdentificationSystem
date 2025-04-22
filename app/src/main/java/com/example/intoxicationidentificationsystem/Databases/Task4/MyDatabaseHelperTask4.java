@@ -24,6 +24,7 @@ public class MyDatabaseHelperTask4 extends SQLiteOpenHelper {
     private static final String COL_SCORE="_score";
     private static final String COL_LONGEST_TIME="_user_longest_time";
     private static final String STATUS="_status";
+    private static final String DATE="_date";
 
 
     public MyDatabaseHelperTask4(@Nullable Context context) {
@@ -43,7 +44,8 @@ public class MyDatabaseHelperTask4 extends SQLiteOpenHelper {
                         COL_LIVES + " INTEGER, "+
                         COL_SCORE + " INTEGER, " +
                         COL_LONGEST_TIME +" STRING, "+
-                        STATUS + " STRING );";
+                        STATUS + " STRING, "+
+                        DATE + " STRING );";
         db.execSQL(query);
     }
 
@@ -66,6 +68,7 @@ public class MyDatabaseHelperTask4 extends SQLiteOpenHelper {
         cv.put(COL_SCORE, score);
         cv.put(COL_LONGEST_TIME,longestTime);
         cv.put(STATUS,status);
+        cv.put(DATE, String.valueOf(java.time.LocalDateTime.now()));
 
 
 
@@ -226,7 +229,7 @@ public class MyDatabaseHelperTask4 extends SQLiteOpenHelper {
 
 
 
-        
+
         long result= db.insert(TABLE_NAME, null, cv);
         if(result == -1){
             Toast.makeText(context,"Data failed to add", Toast.LENGTH_SHORT).show();

@@ -25,6 +25,7 @@ public class MyDatabaseHelperTask3 extends SQLiteOpenHelper {
     private static final String COL_CLICK_RESPONSE_TIME="_click_response_time";
     private static final String COL_RELEASE_RESPONSE_TIME="_release_response_time";
     private static final String STATUS="_status";
+    private static final String DATE="_date";
 
 
     public MyDatabaseHelperTask3(@Nullable Context context) {
@@ -46,7 +47,8 @@ public class MyDatabaseHelperTask3 extends SQLiteOpenHelper {
                         COL_TOTAL + " INTEGER, " +
                         COL_CLICK_RESPONSE_TIME +" LONG, "+
                         COL_RELEASE_RESPONSE_TIME +" LONG, "+
-                        STATUS + " STRING );";
+                        STATUS + " STRING, " +
+                        DATE +" STRING);";
         db.execSQL(query);
     }
 
@@ -71,6 +73,7 @@ public class MyDatabaseHelperTask3 extends SQLiteOpenHelper {
         cv.put(COL_CLICK_RESPONSE_TIME,click_response_time);
         cv.put(COL_RELEASE_RESPONSE_TIME,release_response_time);
         cv.put(STATUS,status);
+        cv.put(DATE, String.valueOf(java.time.LocalDateTime.now()));
 
         long result= db.insert(TABLE_NAME, null, cv);
         if(result == -1){
